@@ -25,7 +25,7 @@ export class GmapService {
 
     const refMap = document.getElementById(id);
 
-    GmapService.map = new google.maps.Map(refMap, Object.assign({}, {
+    const source = {
       zoom: GmapService.DEFAULT_ZOOM_LEVEL,
       center: GmapService.DEFAULT_CENTER,
       fullscreenControl: false,
@@ -43,9 +43,11 @@ export class GmapService {
       },
       clickableIcons: false,
       noClear: true,
-      gestureHandling: 'greedy',
+      // gestureHandling: 'greedy',
       controlSize: 28
-    }, opts));
+    };
+
+    GmapService.map = new google.maps.Map(refMap, Object.assign({}, source, opts));
 
     return GmapService.map;
   }

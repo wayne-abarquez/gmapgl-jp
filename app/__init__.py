@@ -6,6 +6,7 @@ import tempfile
 from flask import Flask
 from flask.ext import restful
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 from config import config_by_name
 
@@ -24,6 +25,9 @@ tempfile.tempdir = app.config.get('TMP_DIR', '')
 # global SQLAlchemy instance
 db = SQLAlchemy(app)
 
+# CORS fix
+cors = CORS(app)
+
 # Config for Logging
 stdout_handler = logging.StreamHandler(sys.stdout)
 stdout_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s - %(filename)s %(funcName)s: %(message)s'))
@@ -40,11 +44,6 @@ if app.config['LOG_FILENAME']:
 
 # global instance of flask-restful, used by resources
 rest_api = restful.Api(app, catch_all_404s=True)
-
-# monkey patch WTForm classes
-import wtforms_json
-
-wtforms_json.init()
 
 # Import app/resources
 from .home.resources import *

@@ -1,5 +1,23 @@
 from flask.ext.restful import fields
 from geoalchemy2.shape import to_shape
+import re
+
+
+class WktPolygonToLatLngArray(fields.Raw):
+    """
+    Convert Wkt Polygon to list {lat=pt.y,lng=pt.x}
+    """
+
+    def format(self, value):
+        rvalues = re.findall(r'\(\((.+\s*\d+\s*)\)\)', value)
+        if len(rvalues):
+            splitvalues = rvalues[0].split(',')
+            latlnglist = []
+            for value in splitvalues:
+                val = re.findall(r'(\d*\.?\d+)', value)
+                latlnglist.append({'lat': float(val[1]), 'lng': float(val[0])})
+            return latlnglist
+        return None
 
 
 class PointToLatLng(fields.Raw):

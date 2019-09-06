@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 sudo rm /etc/nginx/sites-enabled/default
 sudo rm /etc/nginx/sites-available/gmapgl-jp
 sudo rm /etc/nginx/sites-enabled/gmapgl-jp

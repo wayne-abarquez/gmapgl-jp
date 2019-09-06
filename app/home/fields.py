@@ -1,8 +1,8 @@
 from flask.ext.restful import fields
-from app.utils.gis_json_fields import PointToLatLng
+from app.utils.gis_json_fields import WktPolygonToLatLngArray
 
 
 grid_fields = dict(
     id=fields.String,
-    geom=PointToLatLng(attribute='geom')
+    geom=WktPolygonToLatLngArray(attribute='geom')
 )

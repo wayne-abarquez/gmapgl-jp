@@ -912,6 +912,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/googlemaps@^3.37.6":
+  version "3.37.6"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.37.6.tgz#4646e4bd8dcc1beaf522b6e1c2a4228d22e9482f"
+  integrity sha512-ANA1t8sjnLvsxFWVxsbzqj1TTYCwp4j+oOXOiezqCenH2jPwYYhpBSqUzG4A3tpuFW1bL/xhAxhN8DRwDFg2Mw==
+
 "@types/jasmine@*":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.4.0.tgz#018c56db42400c092aae47de21f710b7f04e4b06"

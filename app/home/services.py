@@ -1,6 +1,5 @@
-from .models import Accounts
-# from app import db
+from .models import Grids
 
 
-def get_accounts(limit=1000):
-    return Accounts.query.limit(limit).all()
+def get_grids(limit=500):
+    return Grids.query.limit(limit).all()

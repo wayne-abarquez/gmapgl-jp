@@ -1,6 +1,5 @@
+.idea/
 *.pyc
 venv/*
 logs/*.*
-.idea/
-client/src/bower_components/**
 client/node_modules/**

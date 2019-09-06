@@ -2,10 +2,9 @@ import os
 
 base_dir = os.path.abspath(os.path.dirname(__file__))
 
-# TODO Change info below according to project
 project_name = 'gmapgl-jp'
-db_name = 'callidus'
-db_user = 'callidususer'
+db_name = 'gridjp'
+db_user = 'demouser'
 
 
 class Config(object):
