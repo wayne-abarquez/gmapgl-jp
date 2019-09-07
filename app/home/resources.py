@@ -8,9 +8,9 @@ from .fields import grid_fields
 class GridResource(Resource):
     def get(self):
         """ GET /v1/grids """
-        limit = request.args.get('limit', None)
-
-        return marshal(get_grids(limit), grid_fields)
+        # limit = request.args.get('limit', None)
+        # return marshal(get_grids(), grid_fields)
+        return get_grids()
 
 
 rest_api.add_resource(GridResource, '/v1/grids')

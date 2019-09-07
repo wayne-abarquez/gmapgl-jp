@@ -63,4 +63,45 @@ export class GmapService {
 
     return google.maps.event.addListener(instance, eventName, handler);
   }
+
+  createPolygon(path, opts = {}) {
+    if (!this.isAPIAvailable()) return;
+
+    let polygonOptions = {
+      fillColor: '#3498db',
+      fillOpacity: 0.5,
+      strokeColor: '#2980b9',
+      strokeWeight: 1,
+      clickable: false,
+      editable: false,
+      zIndex: 1
+    };
+
+    if (Array.isArray(path[0])) {
+      polygonOptions.paths = path;
+    } else {
+      polygonOptions.path = path;
+    }
+
+    polygonOptions.editable = false;
+    polygonOptions.clickable = true;
+    polygonOptions.map = GmapService.map;
+
+    return new google.maps.Polygon(Object.assign({}, polygonOptions, opts));
+  }
+
+  createBounds(path) {
+    let _bounds = new google.maps.LatLngBounds();
+
+    path.forEach(latLng => {
+      _bounds.extend(latLng);
+    });
+
+    return _bounds;
+  }
+
+  setViewportByBounds(bounds) {
+    GmapService.map.fitBounds(bounds);
+  }
+
 }
