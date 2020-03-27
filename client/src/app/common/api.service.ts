@@ -8,7 +8,7 @@ import { Grid } from '../grid';
 })
 export class ApiService {
 
-  static BASE_URL = 'http://192.168.10.8:81';
+  static BASE_URL = 'http://192.168.178.8:88';
 
   constructor(private http: HttpClient) { }
 
